@@ -10,5 +10,9 @@ namespace pandemic{
     class Virologist : public Player{
         public:
             Virologist(Board& b, City c):Player(b,c){};
+            Virologist& treat(const City&);
+            string role(){
+                return "Virologist";
+            };
     };
 }

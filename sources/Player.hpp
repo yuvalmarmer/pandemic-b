@@ -19,13 +19,14 @@ namespace pandemic{
             virtual Player& discover_cure(const Color&);
             virtual Player& treat(const City&);
             virtual string role(){
-                return "";
+                return "Player";
             };
             Player& take_card(const City&);
             Player(Board &b , City c);
             
-        private:
+        
             Board& board;
-            City city;    
+            City city;
+            list<City> cards;
     };
 }
