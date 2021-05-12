@@ -12,26 +12,6 @@ using namespace std;
 namespace pandemic{
     class Board{
         public:
-            bool is_clean(){
-                for (map<City, int>::iterator it = cityToPandemic.begin(); it != cityToPandemic.end(); ++it)
-                {
-                    if(it->second>0){
-                        return false;
-                    }
-                }
-                return true;
-            };
-
-            void remove_cures(){
-                this->colorToCure.clear();
-            };
-
-            void remove_stations(){
-                for (map<City, bool>::iterator it = cityToResearch.begin(); it != cityToResearch.end(); ++it)
-                {
-                    it->second = false;
-                }
-            }
 
             //City to list of cities
             map<City, int> cityToPandemic;
@@ -57,21 +37,31 @@ namespace pandemic{
             //Map of reachers facilitis
             map<Color, bool> colorToCure;
 
+
             
             //Return the number of pandemic in giveen city
             int& operator[] (City city){
                 return cityToPandemic[city];
             }
-
-            int operator[] (City city) const {
-                return -1;
-            }
-            
+            //Constructor
             Board();
+            
+            //Enum to string
+            string enumToString(const City city);
+            string enumToStringColor(const Color color);
+
+            //Operator << for osstream
             friend std::ostream& operator<< (std::ostream& os, const Board& n);
 
-
+            //Init the maps
             void initMaps();
+
+            //Cleaning functions
+            bool is_clean();
+
+            void remove_cures();
+
+            void remove_stations();
 
     };
 }

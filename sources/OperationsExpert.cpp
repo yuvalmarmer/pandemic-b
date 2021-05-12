@@ -2,9 +2,8 @@
 #include "OperationsExpert.hpp"
 
 namespace pandemic{
-    
+    //Build reacher anywhere he wants without throwing a card 
     OperationsExpert& OperationsExpert::build(){
-        //Build reacher anywhere he wants
         if(this->board.cityToResearch[this->city] == false){
             this->board.cityToResearch[this->city]=true;
         }

@@ -1,9 +1,11 @@
 #include "Researcher.hpp"
 
 namespace pandemic{
-        Researcher& Researcher::discover_cure(const Color& color){
+    //Can disocver a cure any where he wants
+    Researcher& Researcher::discover_cure(const Color& color){
         int count = 0;
         list<City> cardsToThrow;
+        //If the is cure with the givven color
         if(this->board.colorToCure[color] == false){
             for(City c : this->cards){
                 if(this->board.cityColorMap[c]==color){
@@ -11,12 +13,14 @@ namespace pandemic{
                     cardsToThrow.push_back(c);
                 }
             }
+            //Only if there is enough cards to throw
             if (count >=5){
                 for(int i=0;i<5;++i){
                     City c = cardsToThrow.front();
                     this->cards.remove(c);
                     cardsToThrow.pop_front();
                 }
+                //Cure this color
                 this->board.colorToCure[color] = true;
             }
             else{

@@ -2,10 +2,11 @@
 #include <algorithm>
 
 namespace pandemic{
-
+    
+    //Can treat any city that connected to current city
     FieldDoctor& FieldDoctor::treat(const City& c){
         std::list<City>::iterator it;
-        
+    
         it = find(this->board.cityConnectionMap[this->city].begin(), this->board.cityConnectionMap[this->city].end(), c);   
         if(it != this->board.cityConnectionMap[this->city].end() || this->city == c){
             //Check if there is pandemic in the city

@@ -1,6 +1,7 @@
 
 #include "Board.hpp"
 #include "Player.hpp"
+#include "iostream"
 
 using namespace std;
 using namespace pandemic;
@@ -19,6 +20,7 @@ int main(){
 
     player.fly_charter(City::Cairo);//.fly_charter(City::Algiers); // fly_charter and back
     player.fly_charter(City::Algiers);
+    cout << b << endl;
 
     return 0;
 }

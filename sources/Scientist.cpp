@@ -2,11 +2,14 @@
 
 
 namespace pandemic{
-        Scientist& Scientist::discover_cure(const Color& color){
+
+    //Can dicover a cure with less cards the 5, the parameter givven in the constructor
+    Scientist& Scientist::discover_cure(const Color& color){
         int count = 0;
         list<City> cardsToThrow;
-        
+        //Check if city has a research facility   
         if(this->board.cityToResearch[this->city] ){
+            //If the is cure with the givven color
             if( this->board.colorToCure[color] == false){
                 for(City c : this->cards){
                     if(this->board.cityColorMap[c]==color){
@@ -14,6 +17,7 @@ namespace pandemic{
                         cardsToThrow.push_back(c);
                     }
                 }
+                //Only if there is enough cards to throw
                 if (count >=this->n){
                     for(int i=0;i<this->n;++i){
                         City c = cardsToThrow.front();
@@ -31,7 +35,6 @@ namespace pandemic{
             throw invalid_argument("Already have cure");
         }
         return *this;
-
     }
 
 }

@@ -2,7 +2,7 @@
 #include <algorithm>
 
 namespace pandemic{
-
+    //Can treat any city by throwing there card
     Virologist& Virologist::treat(const City& c){
         std::list<City>::iterator it;
         

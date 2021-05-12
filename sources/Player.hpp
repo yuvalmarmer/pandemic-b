@@ -18,13 +18,17 @@ namespace pandemic{
             virtual Player& build();
             virtual Player& discover_cure(const Color&);
             virtual Player& treat(const City&);
+            Player& take_card(const City&);
+
+            //Return the role 
             virtual string role(){
                 return "Player";
             };
-            Player& take_card(const City&);
+
+            //Constructor
             Player(Board &b , City c);
             
-        
+            //Properties
             Board& board;
             City city;
             list<City> cards;

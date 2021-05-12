@@ -2,7 +2,7 @@
 #include <algorithm>
 
 namespace pandemic{
-
+    //Treat the pandmic to 0
     Medic& Medic::treat(const City& c){
         std::list<City>::iterator it;
         
@@ -19,6 +19,7 @@ namespace pandemic{
         return *this;
     }
 
+    //If the city color already have a cure automaticly cure it 
     Medic& Medic::drive(const City& c){
 
         std::list<City>::iterator it;
@@ -38,6 +39,7 @@ namespace pandemic{
 
     }
     
+    //If the city color already have a cure automaticly cure it 
     Medic& Medic::fly_charter(const City& c){
         list<City>::iterator it;
         it = find(this->cards.begin(), this->cards.end(), this->city);
@@ -50,6 +52,8 @@ namespace pandemic{
         }
         return *this;
     }
+    
+    //If the city color already have a cure automaticly cure it   
     Medic& Medic::fly_shuttle(const City& c){
         //If current city has a research facility
         if(this->board.cityToResearch[this->city] && this->city != c){
@@ -70,6 +74,8 @@ namespace pandemic{
         return *this;
 
     }
+    
+    //If the city color already have a cure automaticly cure it   
     Medic& Medic::fly_direct(const City& c){
         list<City>::iterator it;
         it = find(this->cards.begin(), this->cards.end(), c);
