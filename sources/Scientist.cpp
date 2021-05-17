@@ -10,7 +10,7 @@ namespace pandemic{
         //Check if city has a research facility   
         if(this->board.cityToResearch[this->city] ){
             //If the is cure with the givven color
-            if( this->board.colorToCure[color] == false){
+            if( !this->board.colorToCure[color]){
                 for(City c : this->cards){
                     if(this->board.cityColorMap[c]==color){
                         count+=1;

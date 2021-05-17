@@ -10,7 +10,7 @@ namespace pandemic{
         //Check if city has a research facility   
         if(this->board.cityToResearch[this->city]){
             //If the is cure with the givven color
-            if( this->board.colorToCure[color] == false){
+            if(!this->board.colorToCure[color]){
                 for(City c : this->cards){
 
                     count+=1;
@@ -18,8 +18,8 @@ namespace pandemic{
                 
                 }
                 //Only if there is enough cards to throw
-                if (count >=5){
-                    for(int i=0;i<5;++i){
+                if (count >=Board::NunOfCards){
+                    for(int i=0;i<Board::NunOfCards;++i){
                         City c = cardsToThrow.front();
                         this->cards.remove(c);
                         cardsToThrow.pop_front();

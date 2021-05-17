@@ -12,7 +12,7 @@ using namespace std;
 namespace pandemic{
     class Board{
         public:
-
+            static const int NunOfCards=5;
             //City to list of cities
             map<City, int> cityToPandemic;
 

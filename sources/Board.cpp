@@ -194,7 +194,7 @@ namespace pandemic{
     }
     
     //Operator from draw the board
-    std::ostream& operator<< (std::ostream& os, const Board& n){
+    ostream& operator<< (ostream& os, const Board& n){
         
         cout << "---------------Cures---------------" << endl;
         //Print all cures that founded
@@ -319,7 +319,7 @@ namespace pandemic{
         {
             while ( getline (myfile,line) )
             {   
-                string word = "";
+                string word;
                 int counter = 0;
                 string city;
                 string color;
@@ -347,13 +347,14 @@ namespace pandemic{
                         word="";
                     }
                     else {
-                        word = word + x;
+                        word += x;
+                        
                     }
                 }
                 listOfConnetive.push_back(word);
 
                 //Build back the connectivity map from the list
-                for (string cityConnect : listOfConnetive){
+                for (string const &cityConnect : listOfConnetive){
                     this->cityConnectionMap[this->stringToCity[city]].push_back(this->stringToCity[cityConnect]);
                 }
                 //Coloring the city with given color
